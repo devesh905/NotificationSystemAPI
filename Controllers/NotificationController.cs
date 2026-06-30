@@ -19,9 +19,12 @@ namespace Notification_System_API.Controllers
 
         [HttpPost("send")]
         public IActionResult SendNotification(NotificationRequest request)
-        {
+        {   
             _notificationService.Send(request.Message);
-            return Ok();
+            return Ok(new 
+                { Status = "Success",
+                Message = "Notification sent." }
+                );
         }
 
     }
